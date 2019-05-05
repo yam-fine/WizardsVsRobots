@@ -16,6 +16,7 @@ public class Player : Characters {
     {
         FPC = GetComponent<FirstPersonController>();
         updateSpeed += () => FPC.m_WalkSpeed = Speed;
+        healthBar.Initialize();
     }
 
     public override bool IsDead
