@@ -8,10 +8,10 @@ public abstract class Characters : MonoBehaviour {
     [SerializeField] protected int health { get { return health; } set { Mathf.RoundToInt(value); } }
     //[SerializeField] protected int armor { get { return armor; } set { Mathf.Clamp(armor, 1, value); } }
     [SerializeField] protected List<string> takeDamageSourcesTags;
+    protected bool Attack;
 
     public int damage;
     public float speed;
-    public bool Attack;
     public Animator MyAnimator { get; private set; }
     public Rigidbody MyRigidbody { get; private set; }
     public abstract void TakeDamage(int damage);
