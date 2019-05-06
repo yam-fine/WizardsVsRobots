@@ -4,13 +4,12 @@ using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public delegate void UpdateFPC();
-//public delegate void TriggerAbility();
 
 public abstract class Player : Characters {
 
     [SerializeField] protected float basicFireRate;
     [SerializeField] protected float mobilityFireRate;
-    [SerializeField] protected Image crosshair;
+    [SerializeField] protected CrossHair crosshair;
     [SerializeField] protected Stat healthBar;
     FirstPersonController FPC;
     protected Camera myCamera;
@@ -38,6 +37,7 @@ public abstract class Player : Characters {
         {
             BasicAttack();
             StartCoroutine(ResetAttack(1, basicFireRate));
+
         }
 
         if (Input.GetButtonUp("Jump") && canMobilityAttack)

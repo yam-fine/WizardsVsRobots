@@ -9,6 +9,8 @@ public class Spizard : Player {
 
     public override void BasicAttack()
     {
+        crosshair.CrosshairBig();
+
         GameObject bullet = Instantiate(basicBullet);
         bullet.transform.position = firePoint.transform.position;
         bullet.transform.forward = myCamera.transform.forward;
@@ -16,6 +18,6 @@ public class Spizard : Player {
 
     public override void MobilityAttack()
     {
-        throw new System.NotImplementedException();
+        crosshair.CrosshairSmall();
     }
 }
