@@ -3824,6 +3824,12 @@ Prefab:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1059424306}
+    - target: {fileID: 114440289636859566, guid: 31e3550d5e4201840abb0a3c2f42c64d,
+        type: 2}
+      propertyPath: basicBullet
+      value: 
+      objectReference: {fileID: 1782910089292556, guid: cafacb7d4ed117f45a476f1926d26b5a,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31e3550d5e4201840abb0a3c2f42c64d, type: 2}
   m_IsPrefabAsset: 0
