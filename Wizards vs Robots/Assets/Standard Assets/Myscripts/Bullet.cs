@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] float speed;
     [SerializeField] float lifeTime = 1;
+    [SerializeField] GameObject onHitFX;
+    [SerializeField] bool destroyOnHit = false;
     Rigidbody myRigidbody;
     Vector2 direction;
 
@@ -38,5 +40,20 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);
 
         gameObject.SetActive(false);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (onHitFX != null)
+        {
+            ContactPoint con = collision.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, con.normal);
+            Vector3 pos = con.point;
+            
+            GameObject hitEffect = Instantiate(onHitFX, pos, rot);
+        }
+
+        if (destroyOnHit)
+            gameObject.SetActive(false);
     }
 }
