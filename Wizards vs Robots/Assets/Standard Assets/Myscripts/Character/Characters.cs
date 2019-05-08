@@ -26,7 +26,6 @@ public abstract class Characters : MonoBehaviour {
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (takeDamageSourcesTags.Contains(other.tag))
         {
             //TakeDamage();

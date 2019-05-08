@@ -7,23 +7,31 @@ public delegate void UpdateFPC();
 
 public abstract class Player : Characters {
 
-    [SerializeField] protected float basicFireRate;
-    [SerializeField] protected float mobilityFireRate;
+    [SerializeField] protected float attackSpeed = 1;
     [SerializeField] protected CrossHair crosshair;
     [SerializeField] protected Stat healthBar;
+
+    [SerializeField] protected float basicFireRate;
+    [SerializeField] protected float mobilityFireRate;
+    float currentBasicFireRate, currentMobilityFireRate;
+
     FirstPersonController FPC;
     protected Camera myCamera;
-
     bool canBasicAttack = true;
     bool canMobilityAttack = true;
 
     //public BarHandler HealthBar { get { return healthBar.Bar; } set { healthBar.Bar = value; } }
     public event UpdateFPC updateSpeed;
     public float Speed { get { return speed; } set { speed = value; updateSpeed(); } }
+    public float AttackSpeed { get { return attackSpeed; }
+                               set { attackSpeed += value;
+                                     currentBasicFireRate = attackSpeed * basicFireRate;
+                                     currentMobilityFireRate = attackSpeed * mobilityFireRate;
+        } }
     //public event TriggerAbility OnBasicAttack;
     //public event TriggerAbility OnMobilityAttack;
 
-    private void Start()
+    public virtual void Start()
     {
         FPC = GetComponent<FirstPersonController>();
         updateSpeed += () => FPC.m_WalkSpeed = Speed;
@@ -31,13 +39,12 @@ public abstract class Player : Characters {
         myCamera = Camera.main;
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (Input.GetMouseButton(0) && canBasicAttack)
         {
             BasicAttack();
             StartCoroutine(ResetAttack(1, basicFireRate));
-
         }
 
         if (Input.GetButtonUp("Jump") && canMobilityAttack)

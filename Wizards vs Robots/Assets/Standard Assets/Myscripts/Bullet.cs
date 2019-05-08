@@ -12,7 +12,9 @@ public class Bullet : MonoBehaviour
     Rigidbody myRigidbody;
     Vector2 direction;
 
-    float damage { get; set; }
+    public float damage { get; set; }
+    public float Speed { get { return speed; } }
+    public float LifeTime { get { return lifeTime; } }
 
     void Start()
     {
@@ -29,11 +31,10 @@ public class Bullet : MonoBehaviour
         StartCoroutine(KillMyself());
     }
 
-    public void Initialize(Vector2 direction, float speed)
-    {
-        this.direction = direction;
-        this.speed = speed;
-    }
+    //public void Initialize(float speed)
+    //{
+    //    this.speed *= speed;
+    //}
 
     IEnumerator KillMyself ()
     {
