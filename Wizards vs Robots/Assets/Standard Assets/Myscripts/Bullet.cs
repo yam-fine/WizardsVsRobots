@@ -12,7 +12,6 @@ public class Bullet : MonoBehaviour
     Rigidbody myRigidbody;
     Vector2 direction;
 
-    public float damage { get; set; }
     public float Speed { get { return speed; } }
     public float LifeTime { get { return lifeTime; } }
 

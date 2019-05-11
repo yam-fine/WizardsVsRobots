@@ -55,9 +55,10 @@ GameObject:
   - component: {fileID: 54537677305401720}
   - component: {fileID: 114149490108640410}
   - component: {fileID: 136680850875665552}
+  - component: {fileID: 114217757340757630}
   m_Layer: 0
   m_Name: Basic Bullet
-  m_TagString: Untagged
+  m_TagString: PlayerDmgSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,6 +266,17 @@ MonoBehaviour:
   lifeTime: 2
   onHitFX: {fileID: 1997431007167776, guid: 1caac0264a8a5fa4d8167ce06f615a25, type: 2}
   destroyOnHit: 1
+--- !u!114 &114217757340757630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1782910089292556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de33f4b610b53fc4da7bb2c9426683fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136680850875665552
 CapsuleCollider:
   m_ObjectHideFlags: 1

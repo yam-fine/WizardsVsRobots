@@ -5,17 +5,42 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Characters : MonoBehaviour {
 
-    [SerializeField] protected int health { get { return health; } set { Mathf.RoundToInt(value); } }
-    //[SerializeField] protected int armor { get { return armor; } set { Mathf.Clamp(armor, 1, value); } }
+    [SerializeField] protected float attackSpeed = 1;
+    [SerializeField] protected int damage;
+    [SerializeField] protected float speed;
     [SerializeField] protected List<string> takeDamageSourcesTags;
     protected bool Attack;
 
-    public int damage;
-    public float speed;
     public Animator MyAnimator { get; private set; }
     public Rigidbody MyRigidbody { get; private set; }
-    public abstract void TakeDamage(int damage);
+    public abstract void TakeDamage(Collider source);
     public abstract bool IsDead { get; }
+
+    public int Damage
+    {
+        get
+        {
+            return damage;
+        }
+
+        set
+        {
+            damage = value;
+        }
+    }
+    public virtual float Speed
+    {
+        get
+        {
+            return speed;
+        }
+
+        set
+        {
+            speed = value;
+        }
+    }
+
     public abstract void Death();
 
     public virtual void Awake()
@@ -28,7 +53,7 @@ public abstract class Characters : MonoBehaviour {
     {
         if (takeDamageSourcesTags.Contains(other.tag))
         {
-            //TakeDamage();
+            TakeDamage(other);
         }
     }
 }
