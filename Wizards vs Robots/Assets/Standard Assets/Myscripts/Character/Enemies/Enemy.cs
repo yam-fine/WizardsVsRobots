@@ -1,9 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.AI;
 
-public class Enemy : Characters  {
+public class Enemy : Characters {
+
+    NavMeshAgent agent;
+    GameObject target;
 
     [SerializeField] int health;
     public int Health { get { return health; } set { Mathf.RoundToInt(value); } }
+    public GameObject Target {
+        get { return target; }
+        set { if (target != value) { target = value; Move(target.transform.position); } } }
 
     public override bool IsDead
     {
@@ -11,6 +19,12 @@ public class Enemy : Characters  {
         {
             return health <= 0;
         }
+    }
+
+
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
     }
 
     public override void Death()
@@ -45,5 +59,10 @@ public class Enemy : Characters  {
             //gameObject.GetComponent<SpawnAI>().Remove();
             //MyAnimator.SetTrigger("Dead");
         }
+    }
+    private void Move(Vector3 dest)
+    {
+        agent.SetDestination(dest);
+        Debug.Log("Hello there " + dest);
     }
 }
