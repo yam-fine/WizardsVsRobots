@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(SwordCollider))]
 public class Bullet : MonoBehaviour
 {
 

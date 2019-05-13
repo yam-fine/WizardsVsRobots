@@ -1,18 +1,19 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : Characters {
+public abstract class Enemy : Characters {
 
-    NavMeshAgent agent;
-    GameObject target;
+    protected NavMeshAgent agent;
+    protected GameObject target;
+    protected GameManager gm;
 
-    [SerializeField] int health;
+    [SerializeField] protected int money;
+    [SerializeField] protected int health;
     public int Health { get { return health; } set { Mathf.RoundToInt(value); } }
     public GameObject Target {
         get { return target; }
         set { if (target != value) { target = value; Move(target.transform.position); } } }
-
+    public int Money { get => money; set => money = value; }
     public override bool IsDead
     {
         get
@@ -22,14 +23,10 @@ public class Enemy : Characters {
     }
 
 
-    void Start()
+    public virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-    }
-
-    public override void Death()
-    {
-        throw new System.NotImplementedException();
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     public override void TakeDamage(Collider source)
@@ -55,14 +52,16 @@ public class Enemy : Characters {
         }
         else
         {
-            //score.CountScore = points;
+            gm.Coins = money;
             //gameObject.GetComponent<SpawnAI>().Remove();
-            //MyAnimator.SetTrigger("Dead");
+            MyAnimator.SetBool("Dead", true);
+            agent.isStopped = true;
         }
     }
-    private void Move(Vector3 dest)
+    private protected void Move(Vector3 dest)
     {
         agent.SetDestination(dest);
-        Debug.Log("Hello there " + dest);
     }
+
+    public abstract void Attack();
 }

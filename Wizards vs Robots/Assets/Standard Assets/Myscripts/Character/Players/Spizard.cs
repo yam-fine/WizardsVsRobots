@@ -7,15 +7,6 @@ public class Spizard : Player {
     RaycastHit hit;
     int rayDistance;
 
-    public override void Start()
-    {
-        base.Start();
-
-        //Bullet tempBullet = basicBullet.GetComponent<Bullet>();
-        //rayDistance = Mathf.RoundToInt(tempBullet.Speed * tempBullet.LifeTime);
-        //rayDistance += Mathf.RoundToInt(Mathf.Abs(myCamera.transform.position.z - transform.position.z));
-    }
-
     public override void BasicAttack()
     {
         crosshair.CrosshairBig();

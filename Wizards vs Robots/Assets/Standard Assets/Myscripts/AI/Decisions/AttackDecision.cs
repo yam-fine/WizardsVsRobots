@@ -11,9 +11,9 @@ public class AttackDecision : Decision
     {
         Vector3 myPos = controller.transform.position;
         Physics.Raycast(myPos,
-                        controller.GetComponent<Enemy>().transform.forward,
+                        controller.transform.forward,
                         out hit);
-
+        //Debug.DrawRay(myPos, controller.transform.forward, Color.red);
         return Vector3.Distance(myPos, hit.point) <= attackDistance;
     }
 }

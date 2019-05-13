@@ -85,16 +85,11 @@ public abstract class Player : Characters {
         get { return healthBar.CurrentValue <= 0; }
     }
 
-    public override void Death()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void TakeDamage(Collider source)
     {
         int dmg;
 
-        if (source.tag == "EnemyDmgSource")
+        if (takeDamageSourcesTags.Contains(source.tag))
         {
             dmg = Mathf.RoundToInt(source.GetComponent<SwordCollider>().Damage);
         }
@@ -107,7 +102,7 @@ public abstract class Player : Characters {
         healthBar.CurrentValue -= dmg;
 
         if (!IsDead)
-            if (!Attack)
+            if (!Attacking)
                 MyAnimator.SetBool("TakeDmg", true);
         //else
         //    if (Dead != null)

@@ -9,7 +9,7 @@ public abstract class Characters : MonoBehaviour {
     [SerializeField] protected int damage;
     [SerializeField] protected float speed;
     [SerializeField] protected List<string> takeDamageSourcesTags;
-    protected bool Attack;
+    protected bool Attacking;
 
     public Animator MyAnimator { get; private set; }
     public Rigidbody MyRigidbody { get; private set; }
@@ -40,8 +40,6 @@ public abstract class Characters : MonoBehaviour {
             speed = value;
         }
     }
-
-    public abstract void Death();
 
     public virtual void Awake()
     {
