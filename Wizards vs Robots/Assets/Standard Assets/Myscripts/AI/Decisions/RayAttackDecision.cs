@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Decisions/Attack")]
-public class AttackDecision : Decision
+[CreateAssetMenu(menuName = "PluggableAI/Decisions/RayAttack")]
+public class RayAttackDecision : Decision
 {
     RaycastHit hit;
     [Tooltip("distance in which enemy will stop and attack his target")]

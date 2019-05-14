@@ -6,6 +6,7 @@ public abstract class Enemy : Characters {
     protected NavMeshAgent agent;
     protected GameObject target;
     protected GameManager gm;
+    private EnemySight sight;
 
     [SerializeField] protected int money;
     [SerializeField] protected int health;
@@ -21,12 +22,13 @@ public abstract class Enemy : Characters {
             return health <= 0;
         }
     }
-
+    public EnemySight Sight { get => sight; set => sight = value; }
 
     public virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        Sight = GetComponentInChildren<EnemySight>();
     }
 
     public override void TakeDamage(Collider source)

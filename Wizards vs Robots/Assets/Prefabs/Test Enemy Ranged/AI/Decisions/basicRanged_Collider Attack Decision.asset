@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4b53e7d844910346bb939c5e9f6cc4b, type: 3}
-  m_Name: ShouldAttack
+  m_Script: {fileID: 11500000, guid: a6d9d81dc0b188b458f0e5e0871dfc9e, type: 3}
+  m_Name: basicRanged_Collider Attack Decision
   m_EditorClassIdentifier: 
-  attackDistance: 3
+  attackPlayer: 1
+  attackBase: 1
