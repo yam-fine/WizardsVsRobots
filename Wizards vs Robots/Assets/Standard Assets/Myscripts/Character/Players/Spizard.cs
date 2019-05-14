@@ -24,7 +24,6 @@ public class Spizard : Player {
         else
         {
             Vector3 point = myCamera.transform.position + myCamera.transform.forward * 55;
-            Debug.Log(myCamera.transform.forward);
             bullet.transform.LookAt(point);
         }
     }
