@@ -13,7 +13,7 @@ public abstract class Characters : MonoBehaviour {
 
     public Animator MyAnimator { get; private set; }
     public Rigidbody MyRigidbody { get; private set; }
-    public abstract void TakeDamage(Collider source);
+    public abstract void TakeDamage(GameObject source);
     public abstract bool IsDead { get; }
 
     public int Damage
@@ -47,11 +47,11 @@ public abstract class Characters : MonoBehaviour {
         MyRigidbody = GetComponent<Rigidbody>();
     }
 
-    public virtual void OnTriggerEnter(Collider other)
+    public virtual void OnCollisionEnter(Collision other)
     {
-        if (takeDamageSourcesTags.Contains(other.tag))
+        if (takeDamageSourcesTags.Contains(other.gameObject.tag))
         {
-            TakeDamage(other);
+            TakeDamage(other.gameObject);
         }
     }
 }

@@ -85,7 +85,7 @@ public abstract class Player : Characters {
         get { return healthBar.CurrentValue <= 0; }
     }
 
-    public override void TakeDamage(Collider source)
+    public override void TakeDamage(GameObject source)
     {
         int dmg;
 

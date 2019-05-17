@@ -38,7 +38,7 @@ public class Base : Characters
         fade.FadeOut(lerpTime);
     }
 
-    public override void TakeDamage(Collider source)
+    public override void TakeDamage(GameObject source)
     {
         if (takeDamageSourcesTags.Contains(source.tag))
         {

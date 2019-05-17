@@ -46,7 +46,7 @@ public abstract class Enemy : Characters {
         Sight = GetComponentInChildren<EnemySight>();
     }
 
-    public override void TakeDamage(Collider source)
+    public override void TakeDamage(GameObject source)
     {
         int dmg;
 
@@ -77,18 +77,9 @@ public abstract class Enemy : Characters {
     }
     private protected void Move(Vector3 dest)
     {
+        agent.isStopped = false;
         agent.SetDestination(dest);
     }
-
-    //public void LookAt()
-    //{
-    //    Vector3 direction = target.transform.position;
-    //    Quaternion rotation = Quaternion.LookRotation(direction);
-
-    //    // rotates object at the speed * time.deltaTime
-    //    transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 5 * Time.deltaTime);
-    //    Debug.Log("looking at");
-    //}
 
     public virtual void Attack()
     {
@@ -103,8 +94,8 @@ public abstract class Enemy : Characters {
         canAttack = true;
     }
 
-    private void Update()
-    {
-        Debug.Log(canAttack);
-    }
+    //private void Update()
+    //{
+    //    Debug.Log(target);
+    //}
 }

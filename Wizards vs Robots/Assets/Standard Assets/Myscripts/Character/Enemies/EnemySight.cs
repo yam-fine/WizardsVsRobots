@@ -18,10 +18,11 @@ public class EnemySight : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.gameObject + "?");
         if (other.tag == "Player" || other.tag == "Base")
         {
             inSight.Add(other.gameObject);
-
+            Debug.Log(other.gameObject + "!");
             if (myself.preferPlayer && other.tag == "Player")
                 myself.Target = other.gameObject;
         }
