@@ -8,7 +8,7 @@ public abstract class Enemy : Characters {
     protected NavMeshAgent agent;
     protected GameObject target;
     protected GameManager gm;
-    private bool canAttack = true;
+    //private bool canAttack = true;
     private EnemySight sight;
 
     [SerializeField] protected int money;
@@ -17,7 +17,7 @@ public abstract class Enemy : Characters {
     public int Health { get { return health; } set { Mathf.RoundToInt(value); } }
     public GameObject Target {
         get { return target; }
-        set { if (target != value) { target = value; Move(target.transform.position); } } }
+        set { if (target != value) { target = value; } } }
     public int Money { get => money; set => money = value; }
     public override bool IsDead
     {
@@ -27,23 +27,24 @@ public abstract class Enemy : Characters {
         }
     }
     public EnemySight Sight { get => sight; set => sight = value; }
-    public bool CanAttack
-    {
-        get => canAttack;
-        set
-        {
-            canAttack = value;
+    //public bool CanAttack
+    //{
+    //    get => canAttack;
+    //    set
+    //    {
+    //        canAttack = value;
 
-            if (!value)
-                StartCoroutine(ResetAttack());
-        }
-    }
+    //        //if (!value)
+    //        //    StartCoroutine(ResetAttack());
+    //    }
+    //}
 
     public virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         Sight = GetComponentInChildren<EnemySight>();
+        target = Base.Instance.gameObject;
     }
 
     public override void TakeDamage(GameObject source)
@@ -75,27 +76,27 @@ public abstract class Enemy : Characters {
             agent.isStopped = true;
         }
     }
-    private protected void Move(Vector3 dest)
+    public void Move()
     {
         agent.isStopped = false;
-        agent.SetDestination(dest);
+        agent.SetDestination(target.transform.position);
     }
 
     public virtual void Attack()
     {
-        CanAttack = false;
+        //CanAttack = false;
         agent.isStopped = true;
     }
 
-    IEnumerator ResetAttack()
-    {
-        yield return new WaitForSeconds(attackSpeed);
-
-        canAttack = true;
-    }
-
-    //private void Update()
+    //IEnumerator ResetAttack()
     //{
-    //    Debug.Log(target);
+    //    yield return new WaitForSeconds(attackSpeed);
+
+    //    canAttack = true;
     //}
+
+    private void Update()
+    {
+        Debug.Log(target);
+    }
 }

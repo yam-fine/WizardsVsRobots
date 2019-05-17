@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class EnemySight : MonoBehaviour
 {
-    //GameObject target;
-    List<GameObject> inSight;
+    List<GameObject> inSight = new List<GameObject>();
     Enemy myself;
     Base theBase;
 
@@ -16,7 +15,7 @@ public class EnemySight : MonoBehaviour
         theBase = Base.Instance;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject + "?");
         if (other.tag == "Player" || other.tag == "Base")
@@ -28,7 +27,7 @@ public class EnemySight : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Base")
         {

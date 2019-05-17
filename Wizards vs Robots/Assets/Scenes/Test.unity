@@ -2015,5 +2015,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 908295792, guid: ab8b811fd20cc27478b6983c2a121766, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186901956, guid: ab8b811fd20cc27478b6983c2a121766, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 908295791, guid: ab8b811fd20cc27478b6983c2a121766, type: 3}
+      propertyPath: attackSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab8b811fd20cc27478b6983c2a121766, type: 3}

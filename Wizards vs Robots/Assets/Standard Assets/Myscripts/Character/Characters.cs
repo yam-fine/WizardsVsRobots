@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Characters : MonoBehaviour {
 
-    [SerializeField] protected float attackSpeed = 1;
+    [SerializeField] private float attackSpeed = 1;
     [SerializeField] protected int damage;
     [SerializeField] protected float speed;
     [SerializeField] protected List<string> takeDamageSourcesTags;
@@ -40,6 +40,7 @@ public abstract class Characters : MonoBehaviour {
             speed = value;
         }
     }
+    public float AttackSpeed { get => attackSpeed; }
 
     public virtual void Awake()
     {

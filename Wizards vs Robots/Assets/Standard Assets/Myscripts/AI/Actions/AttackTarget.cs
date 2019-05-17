@@ -5,9 +5,7 @@ public class AttackTarget : Action
 {
     public override void Act(StateController controller)
     {
-        Enemy myself = controller.GetComponent<Enemy>();
-        if (myself.CanAttack)
-            myself.Attack();
+        controller.enemy.Attack();
         Debug.Log("attacking target");
     }
 }

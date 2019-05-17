@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd7aab47af069df4990a7bcf2dd85801, type: 3}
-  m_Name: BasicRanged_Go To Base
+  m_Name: BasicRanged_Go To Target
   m_EditorClassIdentifier: 
   actions:
   - {fileID: 11400000, guid: 2cd3b08b590d8544c816a7d65d85ca59, type: 2}
   transitions:
-  - decision: {fileID: 11400000, guid: d8a9a46c1d63c024e901cd310fd91924, type: 2}
+  - decision: {fileID: 11400000, guid: 3a6cb76c698bf2f42b60a3fda02d94cf, type: 2}
     trueState: {fileID: 11400000, guid: caf2f941ac6c89d4d937326d1e2998dc, type: 2}
     falseState: {fileID: 11400000, guid: 6938d614edc5c794688b195584edb37b, type: 2}
   sceneGizmoColor: {r: 0.10039814, g: 0.08317016, b: 0.8396226, a: 1}

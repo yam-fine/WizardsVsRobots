@@ -1,21 +1,23 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Decisions/ColliderAttack")]
-public class ColliderAttackDecision : Decision
+[CreateAssetMenu(menuName = "PluggableAI/Decisions/Collider_CanAttack")]
+public class Collider_CanAttackDecision : Decision
 {
     [SerializeField] bool attackPlayer = true;
     [SerializeField] bool attackBase = true;
 
     public override bool Decide(StateController controller)
     {
-        return InRange(controller);
+        if (controller.CheckIfCountDownElapsed(controller.enemy.AttackSpeed))
+            return InRange(controller);
+        return false;
     }
 
     bool InRange(StateController controller)
     {
         List<GameObject> targets = controller.enemy.Sight.InSight;
-
+        Debug.Log(targets.Count);
         if (targets.Count > 0)
         {
             foreach (GameObject target in targets)

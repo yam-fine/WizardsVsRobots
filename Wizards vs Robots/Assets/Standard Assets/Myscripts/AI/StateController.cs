@@ -10,8 +10,8 @@ public class StateController : MonoBehaviour
 
     //[HideInInspector]
     //public Transform chaseTarget;
-    [HideInInspector]
-    public float stateTimeElapsed = 0;
+    //[HideInInspector]
+    float stateTimeElapsed = 0;
 
     private bool aiActive = true;
 

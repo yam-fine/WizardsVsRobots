@@ -7,14 +7,11 @@ public class BasicRangedMob : Enemy
 
     public override void Attack()
     {
-        if (CanAttack)
-        {
-            GameObject bullet = Instantiate(projectile);
-            bullet.transform.position = firePoint.transform.position;
-            bullet.GetComponent<SwordCollider>().Damage = Damage;
-            bullet.transform.LookAt(target.transform);
-        }
-
+        GameObject bullet = Instantiate(projectile);
+        bullet.transform.position = firePoint.transform.position;
+        bullet.GetComponent<SwordCollider>().Damage = Damage;
+        bullet.transform.LookAt(target.transform);
+        
         base.Attack();
     }
 }

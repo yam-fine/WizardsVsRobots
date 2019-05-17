@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6d9d81dc0b188b458f0e5e0871dfc9e, type: 3}
-  m_Name: basicRanged_Collider Attack Decision
+  m_Name: BasicRanged_Collider Attack Decision
   m_EditorClassIdentifier: 
   attackPlayer: 1
   attackBase: 1

@@ -18,16 +18,14 @@ public abstract class Player : Characters {
     bool canBasicAttack = true;
     bool canMobilityAttack = true;
 
-    //public BarHandler HealthBar { get { return healthBar.Bar; } set { healthBar.Bar = value; } }
     public event UpdateFPC updateSpeed;
     public override float Speed { get { return speed; } set { speed = value; updateSpeed(); } }
-    public float AttackSpeed { get { return attackSpeed; }
-                               set { attackSpeed += value;
-                                     currentBasicFireRate = attackSpeed * basicFireRate;
-                                     currentMobilityFireRate = attackSpeed * mobilityFireRate;
-        } }
-    //public event TriggerAbility OnBasicAttack;
-    //public event TriggerAbility OnMobilityAttack;
+    
+    //public float AttackSpeed { get { return AttackSpeed; }
+    //                           set { attackSpeed += value;
+    //                                 currentBasicFireRate = attackSpeed * basicFireRate;
+    //                                 currentMobilityFireRate = attackSpeed * mobilityFireRate;
+    //} }
 
     public virtual void Start()
     {
