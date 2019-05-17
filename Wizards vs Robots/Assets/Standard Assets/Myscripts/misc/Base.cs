@@ -12,6 +12,17 @@ public class Base : Characters
     Coroutine routine = null;
     public override bool IsDead => healthBar.CurrentValue <= 0;
 
+    static Base instance;
+    public static Base Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = GameObject.FindGameObjectWithTag("Base").GetComponent<Base>();
+            return instance;
+        }
+    }
+
     private void Start()
     {
         healthBar.Initialize();

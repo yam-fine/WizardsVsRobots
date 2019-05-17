@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public abstract class Enemy : Characters {
 
     protected NavMeshAgent agent;
     protected GameObject target;
     protected GameManager gm;
+    private bool canAttack = true;
     private EnemySight sight;
 
     [SerializeField] protected int money;
     [SerializeField] protected int health;
+    public bool preferPlayer;
     public int Health { get { return health; } set { Mathf.RoundToInt(value); } }
     public GameObject Target {
         get { return target; }
@@ -23,6 +27,17 @@ public abstract class Enemy : Characters {
         }
     }
     public EnemySight Sight { get => sight; set => sight = value; }
+    public bool CanAttack
+    {
+        get => canAttack;
+        set
+        {
+            canAttack = value;
+
+            if (!value)
+                StartCoroutine(ResetAttack());
+        }
+    }
 
     public virtual void Start()
     {
@@ -65,5 +80,31 @@ public abstract class Enemy : Characters {
         agent.SetDestination(dest);
     }
 
-    public abstract void Attack();
+    //public void LookAt()
+    //{
+    //    Vector3 direction = target.transform.position;
+    //    Quaternion rotation = Quaternion.LookRotation(direction);
+
+    //    // rotates object at the speed * time.deltaTime
+    //    transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 5 * Time.deltaTime);
+    //    Debug.Log("looking at");
+    //}
+
+    public virtual void Attack()
+    {
+        CanAttack = false;
+        agent.isStopped = true;
+    }
+
+    IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(attackSpeed);
+
+        canAttack = true;
+    }
+
+    private void Update()
+    {
+        Debug.Log(canAttack);
+    }
 }

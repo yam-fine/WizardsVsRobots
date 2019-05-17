@@ -8,8 +8,8 @@ public class StateController : MonoBehaviour
     public Enemy enemy;
     public State remainState;
 
-    [HideInInspector]
-    public Transform chaseTarget;
+    //[HideInInspector]
+    //public Transform chaseTarget;
     [HideInInspector]
     public float stateTimeElapsed = 0;
 
