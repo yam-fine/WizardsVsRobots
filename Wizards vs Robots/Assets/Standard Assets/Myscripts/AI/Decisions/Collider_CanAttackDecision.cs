@@ -17,7 +17,7 @@ public class Collider_CanAttackDecision : Decision
     bool InRange(StateController controller)
     {
         List<GameObject> targets = controller.enemy.Sight.InSight;
-        Debug.Log(targets.Count);
+
         if (targets.Count > 0)
         {
             foreach (GameObject target in targets)

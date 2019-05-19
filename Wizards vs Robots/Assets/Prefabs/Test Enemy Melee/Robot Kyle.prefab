@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 1086449843}
   - component: {fileID: 1086449846}
   - component: {fileID: 1086449842}
+  - component: {fileID: -8000323716783395359}
   m_Layer: 0
   m_Name: Robot Kyle
   m_TagString: Enemy
@@ -330,7 +331,6 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: e61526c1b3927a84fa4a1bcfdbdc7194, type: 2}
   enemy: {fileID: 0}
   remainState: {fileID: 11400000, guid: 6938d614edc5c794688b195584edb37b, type: 2}
-  stateTimeElapsed: 0
 --- !u!54 &1086449843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -387,6 +387,18 @@ MonoBehaviour:
   health: 100
   preferPlayer: 0
   col: {fileID: 873514419}
+--- !u!114 &-8000323716783395359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091954359220884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e429ed74431364d9a24650c6003fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1099459374271120
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,12 +2,12 @@
 
 public class BasicMeleeMob : Enemy
 {
-    [SerializeField] Collider col;
     SwordCollider swordCol;
+    [SerializeField] Collider col;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
         swordCol = col.GetComponent<SwordCollider>();
     }
 
@@ -23,8 +23,9 @@ public class BasicMeleeMob : Enemy
 
     public override void Attack()
     {
-        agent.isStopped = true;
         swordCol.Damage = Damage;
         MyAnimator.SetTrigger("Attack");
+
+        base.Attack();
     }
 }

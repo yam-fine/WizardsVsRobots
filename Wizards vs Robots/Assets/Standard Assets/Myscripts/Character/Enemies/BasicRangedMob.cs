@@ -7,6 +7,8 @@ public class BasicRangedMob : Enemy
 
     public override void Attack()
     {
+        transform.LookAt(target.transform);
+
         GameObject bullet = Instantiate(projectile);
         bullet.transform.position = firePoint.transform.position;
         bullet.GetComponent<SwordCollider>().Damage = Damage;

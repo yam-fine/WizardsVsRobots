@@ -200,7 +200,6 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 6fd4f9f13fb5efc40974b5cce684df57, type: 2}
   enemy: {fileID: 0}
   remainState: {fileID: 11400000, guid: 6938d614edc5c794688b195584edb37b, type: 2}
-  stateTimeElapsed: 0
 --- !u!54 &908295792
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -248,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329dd464c8fab934f82db852ebc64275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 3
+  attackSpeed: 1
   damage: 10
   speed: 5
   takeDamageSourcesTags:
@@ -278,6 +277,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0.5
+  m_BaseOffset: 3
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

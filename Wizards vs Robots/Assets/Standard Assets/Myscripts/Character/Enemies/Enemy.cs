@@ -7,8 +7,8 @@ public abstract class Enemy : Characters {
 
     protected NavMeshAgent agent;
     protected GameObject target;
+    GameObject lastTarget;
     protected GameManager gm;
-    //private bool canAttack = true;
     private EnemySight sight;
 
     [SerializeField] protected int money;
@@ -27,19 +27,8 @@ public abstract class Enemy : Characters {
         }
     }
     public EnemySight Sight { get => sight; set => sight = value; }
-    //public bool CanAttack
-    //{
-    //    get => canAttack;
-    //    set
-    //    {
-    //        canAttack = value;
 
-    //        //if (!value)
-    //        //    StartCoroutine(ResetAttack());
-    //    }
-    //}
-
-    public virtual void Start()
+    void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
@@ -78,25 +67,16 @@ public abstract class Enemy : Characters {
     }
     public void Move()
     {
-        agent.isStopped = false;
-        agent.SetDestination(target.transform.position);
+        if (lastTarget != Target)
+        {
+            agent.isStopped = false;
+            agent.SetDestination(target.transform.position);
+            lastTarget = Target;
+        }
     }
 
     public virtual void Attack()
     {
-        //CanAttack = false;
         agent.isStopped = true;
-    }
-
-    //IEnumerator ResetAttack()
-    //{
-    //    yield return new WaitForSeconds(attackSpeed);
-
-    //    canAttack = true;
-    //}
-
-    private void Update()
-    {
-        Debug.Log(target);
     }
 }

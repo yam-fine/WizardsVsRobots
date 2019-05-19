@@ -9,6 +9,13 @@ public class RayAttackDecision : Decision
 
     public override bool Decide(StateController controller)
     {
+        if (controller.CheckIfCountDownElapsed(controller.enemy.AttackSpeed))
+            return InRange(controller);
+        return false;
+    }
+
+    bool InRange(StateController controller)
+    {
         Vector3 myPos = controller.transform.position;
         Physics.Raycast(myPos,
                         controller.transform.forward,

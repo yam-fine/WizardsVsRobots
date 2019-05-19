@@ -48,7 +48,6 @@ public class Base : Characters
                 StopCoroutine(routine);
             cg.alpha = 1;
             routine = StartCoroutine(hidebarTimer());
-            Debug.Log("base under fire ");
         }
     }    
 }
