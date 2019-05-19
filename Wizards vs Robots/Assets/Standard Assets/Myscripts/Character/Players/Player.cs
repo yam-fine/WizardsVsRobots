@@ -86,16 +86,7 @@ public abstract class Player : Characters {
     public override void TakeDamage(GameObject source)
     {
         int dmg;
-
-        if (takeDamageSourcesTags.Contains(source.tag))
-        {
-            dmg = Mathf.RoundToInt(source.GetComponent<SwordCollider>().Damage);
-        }
-        else
-        {
-            dmg = 0;
-            Debug.Log("DmgSource holds no damage");
-        }
+        dmg = Mathf.RoundToInt(source.GetComponent<SwordCollider>().Damage);
 
         healthBar.CurrentValue -= dmg;
 

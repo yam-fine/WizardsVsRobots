@@ -28,4 +28,9 @@ public class BasicMeleeMob : Enemy
 
         base.Attack();
     }
+
+    public override void BetweenAttacks()
+    {
+        
+    }
 }

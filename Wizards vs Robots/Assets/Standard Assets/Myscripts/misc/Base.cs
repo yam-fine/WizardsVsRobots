@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Base : Characters
 {
@@ -40,14 +39,17 @@ public class Base : Characters
 
     public override void TakeDamage(GameObject source)
     {
-        if (takeDamageSourcesTags.Contains(source.tag))
-        {
-            healthBar.CurrentValue -= source.GetComponent<SwordCollider>().Damage;
+        healthBar.CurrentValue -= source.GetComponent<SwordCollider>().Damage;
 
-            if (routine != null)
-                StopCoroutine(routine);
-            cg.alpha = 1;
-            routine = StartCoroutine(hidebarTimer());
-        }
-    }    
+        if (routine != null)
+            StopCoroutine(routine);
+        cg.alpha = 1;
+        routine = StartCoroutine(hidebarTimer());
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (takeDamageSourcesTags.Contains(other.tag))
+            TakeDamage(other.gameObject);
+    }
 }

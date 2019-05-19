@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd7aab47af069df4990a7bcf2dd85801, type: 3}
-  m_Name: BasicRanged_Go To Target
+  m_Name: BasicRanged_BetweenAttacks
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 2cd3b08b590d8544c816a7d65d85ca59, type: 2}
+  - {fileID: 11400000, guid: d308f4e1ae6f15d4ba243141ad137142, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 21d075f9676356d4d90c87fb18221f50, type: 2}
-    trueState: {fileID: 11400000, guid: 71d5c2e2bd1597b4c8ceed03dd76ff1d, type: 2}
+    trueState: {fileID: 11400000, guid: 6938d614edc5c794688b195584edb37b, type: 2}
+    falseState: {fileID: 11400000, guid: 6fd4f9f13fb5efc40974b5cce684df57, type: 2}
+  - decision: {fileID: 11400000, guid: 45f344591fc289a428e94622fbb7d0b6, type: 2}
+    trueState: {fileID: 11400000, guid: caf2f941ac6c89d4d937326d1e2998dc, type: 2}
     falseState: {fileID: 11400000, guid: 6938d614edc5c794688b195584edb37b, type: 2}
-  sceneGizmoColor: {r: 0.10039814, g: 0.08317016, b: 0.8396226, a: 1}
+  sceneGizmoColor: {r: 0, g: 1, b: 0.2607293, a: 1}

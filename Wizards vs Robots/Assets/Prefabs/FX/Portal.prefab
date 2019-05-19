@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8118401901717448840}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &7883202070281347812
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4822,6 +4822,7 @@ GameObject:
   - component: {fileID: 8118401901717448841}
   - component: {fileID: 8118401901717448842}
   - component: {fileID: 8118401901717448843}
+  - component: {fileID: 1861365933}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -4903,3 +4904,29 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1861365933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118401901717449076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93bd17cbe136edc40a76427e24bb9999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitLevel: 0
+  unitList:
+  - {fileID: 1091954359220884, guid: ec4b04f9fd14ec04c856702effdc1223, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  totalUnits: 10
+  spawnID: 0
+  spawn: 1
+  spawnType: 2
+  waveTimer: 30
+  totalWaves: 5
+  timeBetweenSpawns: 0.3
+  spawnLocation: {fileID: 8118401901717448840}

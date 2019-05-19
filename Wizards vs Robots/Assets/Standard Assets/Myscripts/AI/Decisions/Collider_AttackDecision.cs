@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PluggableAI/Decisions/Collider_CanAttack")]
-public class Collider_CanAttackDecision : Decision
+[CreateAssetMenu(menuName = "PluggableAI/Decisions/Collider_Attack")]
+public class Collider_AttackDecision : Decision
 {
     [SerializeField] bool attackPlayer = true;
     [SerializeField] bool attackBase = true;

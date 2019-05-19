@@ -8,21 +8,12 @@ public class StateController : MonoBehaviour
     public Enemy enemy;
     public State remainState;
 
-    //[HideInInspector]
-    //public Transform chaseTarget;
-    //[HideInInspector]
     float stateTimeElapsed = 0;
-
     private bool aiActive = true;
 
     void Awake()
     {
         enemy = GetComponent<Enemy>();
-    }
-
-    void Start()
-    {
-        //chaseTarget = enemy.MyTarget.transform;
     }
 
     void Update()
@@ -58,6 +49,5 @@ public class StateController : MonoBehaviour
     private void OnExitState()
     {
         stateTimeElapsed = 0;
-        //enemy.PatrolTime = 0;
     }
 }

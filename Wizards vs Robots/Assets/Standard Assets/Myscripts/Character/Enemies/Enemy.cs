@@ -10,6 +10,7 @@ public abstract class Enemy : Characters {
     GameObject lastTarget;
     protected GameManager gm;
     private EnemySight sight;
+    bool canAttack = true;
 
     [SerializeField] protected int money;
     [SerializeField] protected int health;
@@ -27,6 +28,7 @@ public abstract class Enemy : Characters {
         }
     }
     public EnemySight Sight { get => sight; set => sight = value; }
+    public bool CanAttack { get => canAttack; private set { canAttack = value; StartCoroutine(ResetAttack()); } }
 
     void Start()
     {
@@ -39,16 +41,7 @@ public abstract class Enemy : Characters {
     public override void TakeDamage(GameObject source)
     {
         int dmg;
-
-        if (source.tag == "PlayerDmgSource")
-        {
-            dmg = Mathf.RoundToInt(source.GetComponent<SwordCollider>().Damage);
-        }
-        else
-        {
-            dmg = 0;
-            Debug.Log("DmgSource holds no damage");
-        }
+        dmg = Mathf.RoundToInt(source.GetComponent<SwordCollider>().Damage);
 
         health -= dmg;
         Debug.Log("Ouch");
@@ -67,9 +60,10 @@ public abstract class Enemy : Characters {
     }
     public void Move()
     {
-        if (lastTarget != Target)
+        if (agent.isStopped || lastTarget != Target)
         {
             agent.isStopped = false;
+            agent.ResetPath();
             agent.SetDestination(target.transform.position);
             lastTarget = Target;
         }
@@ -77,6 +71,17 @@ public abstract class Enemy : Characters {
 
     public virtual void Attack()
     {
+        transform.LookAt(target.transform);
         agent.isStopped = true;
+        CanAttack = false;
     }
+
+    IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(AttackSpeed);
+
+        canAttack = true;
+    }
+
+    public abstract void BetweenAttacks();
 }
