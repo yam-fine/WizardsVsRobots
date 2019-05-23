@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HologramCanPlace
+  m_Shader: {fileID: -6465566751694194690, guid: 981c10f65fef1094793ae56fc4e79ba1,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_3F46B8E9:
+        m_Texture: {fileID: 2800000, guid: b12c0ebe9205dba4db08b748b1b8aacd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_D429B4FA: 1
+    - Vector1_F6AEE480: 5
+    m_Colors:
+    - Color_78FB3C9E: {r: 0, g: 0.63968205, b: 1, a: 0}
+    - Color_CDAE94B8: {r: 0, g: 30.290884, b: 57.037895, a: 0}
+    - Vector2_D3882496: {r: 0, g: 1, b: 0, a: 0}

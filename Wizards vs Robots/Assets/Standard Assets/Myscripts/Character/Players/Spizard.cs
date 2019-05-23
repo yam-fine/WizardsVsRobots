@@ -9,7 +9,7 @@ public class Spizard : Player {
 
     public override void BasicAttack()
     {
-        crosshair.CrosshairBig();
+        base.BasicAttack();
 
         // get direction
         Physics.Raycast(myCamera.transform.position, myCamera.transform.forward, out hit, 500, 9);

@@ -3,9 +3,9 @@
 public abstract class Turret : MonoBehaviour
 {
     float attackCountdown;
-    Transform startRot;
-
+    Quaternion startRot;
     protected Transform target = null;
+
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float damage;
     [SerializeField] protected GameObject projectile;
@@ -14,7 +14,7 @@ public abstract class Turret : MonoBehaviour
 
     private void Start()
     {
-        startRot = transform;
+        startRot = transform.rotation;
     }
 
     private void Update()
@@ -33,7 +33,7 @@ public abstract class Turret : MonoBehaviour
             }
         }
         else
-            LookAt(startRot);
+            transform.rotation = startRot;
 
         if (attackCountdown > 0)
             attackCountdown -= Time.deltaTime;

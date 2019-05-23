@@ -8,15 +8,15 @@ public abstract class Player : Characters {
 
     [SerializeField] protected CrossHair crosshair;
     [SerializeField] protected Stat healthBar;
-
     [SerializeField] protected float basicFireRate;
     [SerializeField] protected float mobilityFireRate;
-    float currentBasicFireRate, currentMobilityFireRate;
 
+    float currentBasicFireRate, currentMobilityFireRate;
     FirstPersonController FPC;
     protected Camera myCamera;
     bool canBasicAttack = true;
     bool canMobilityAttack = true;
+    protected PlacementController pc;
 
     public event UpdateFPC updateSpeed;
     public override float Speed { get { return speed; } set { speed = value; updateSpeed(); } }
@@ -33,11 +33,12 @@ public abstract class Player : Characters {
         updateSpeed += () => FPC.m_WalkSpeed = Speed;
         healthBar.Initialize();
         myCamera = Camera.main;
+        pc = GetComponent<PlacementController>();
     }
 
     public virtual void Update()
     {
-        if (Input.GetMouseButton(0) && canBasicAttack)
+        if (Input.GetMouseButton(0) && canBasicAttack && !pc.PlacingTurret)
         {
             BasicAttack();
             StartCoroutine(ResetAttack(1, basicFireRate));
@@ -75,7 +76,11 @@ public abstract class Player : Characters {
         }
     }
 
-    public abstract void BasicAttack();
+    public virtual void BasicAttack()
+    {
+       crosshair.CrosshairBig();
+    }
+
     public abstract void MobilityAttack();
 
     public override bool IsDead
